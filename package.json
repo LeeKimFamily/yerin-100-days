@@ -1,0 +1,29 @@
+{
+  "name": "yerin-100-days",
+  "version": "1.0.0",
+  "description": "예린이의 100일 초대장 웹사이트",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "deploy": "echo 'Deploy to GitHub Pages'"
+  },
+  "keywords": [
+    "birthday",
+    "invitation",
+    "korean",
+    "baby",
+    "first-birthday",
+    "doljanchi"
+  ],
+  "author": "예린이 가족",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/[username]/yerin-100-days.git"
+  },
+  "homepage": "https://[username].github.io/yerin-100-days",
+  "devDependencies": {},
+  "dependencies": {}
+}

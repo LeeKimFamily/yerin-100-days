@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob:; img-src 'self' data: https: blob:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; font-src 'self' https: data:; frame-src 'self' https:; connect-src 'self' https:;">
+    <title>예린이의 100일 초대장</title>
+    <meta name="description" content="예린이의 100일 파티 초대장 - 2026년 07월 25일 토요일 12:00, 여의도 긴자">
+    <meta name="keywords" content="100일 파티, 초대장, 예린이, 첫생일, 광교">
+    <meta property="og:title" content="예린이의 100일 초대장">
+    <meta property="og:description" content="예린이의 100일 파티에 초대합니다">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lsmlsming.github.io/yw-first-birthday/">
+    <meta property="og:image" content="https://lsmlsming.github.io/yw-first-birthday/photo/main.jpg">
+    <link rel="stylesheet" href="styles.css?v=1.1">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Gamja+Flower&family=Hi+Melody&family=Single+Day&family=Gowun+Batang:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- 지도는 iframe으로 표시 -->
+    
+    <!-- Background Music -->
+    <!-- <audio id="backgroundMusic" loop>
+        <source src="mus.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio> -->
+</head>
+<body>
+
+    <!-- Music Control Button -->
+    <!-- <div class="music-control">
+        <button id="musicToggle" class="music-btn" type="button" title="음악 재생/일시정지" aria-label="음악 재생/일시정지">
+            <i class="fas fa-music"></i>
+        </button>
+    </div> -->
+
+    <!-- Main Section -->
+    <section id="main" class="main-section">
+        <div class="main-content">
+            <!-- Watercolor decorations -->
+            <div class="watercolor-top-left"></div>
+            <div class="watercolor-top-right"></div>
+            <div class="watercolor-bottom-left"></div>
+            <div class="watercolor-bottom-right"></div>
+            
+            <!-- Main title -->
+            <div class="title-section">
+                <h1 class="main-title">예린이의 100일</h1>
+                <p class="subtitle">기쁜 날, 함께 해주세요</p>
+            </div>
+            
+            <!-- Baby photo -->
+            <div class="photo-section">
+                <div class="photo-container">
+                    <img src="photo/main.jpg" alt="예린이" class="baby-photo">
+                    <div class="floral-decoration"></div>
+                    <!-- GIF 버전 (GIF 파일이 있을 경우 사용) -->
+                    <!-- <img data-src="photo/main.gif" alt="예린이 인사" class="baby-photo-gif"> -->
+                </div>
+            </div>
+            
+            <!-- Event details -->
+            <div class="event-details">
+                <p class="description">
+                    사랑으로 맞이한 우리 예린이,<br>
+                    어느새 100일이 되었습니다.<br>
+                    바쁘신 와중에<br>
+                    함께 축하해주셔서 감사합니다.
+                    <br>
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <!-- Photo Gallery Section -->
+    <section class="photo-gallery">
+        <div class="gallery-container">
+            <h2 class="gallery-title">예린이의 소중한 순간들</h2>
+            
+            
+            <!-- Main Gallery (First 9 photos) -->
+            <div class="gallery-grid main-gallery">
+                <div class="gallery-item">
+                    <img src="photo/1.jpg" alt="예린이 사진 1" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/2.jpg" alt="예린이 사진 2" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/3.jpg" alt="예린이 사진 3" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/4.jpg" alt="예린이 사진 4" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/5.jpg" alt="예린이 사진 5" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/6.jpg" alt="예린이 사진 6" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/7.jpg" alt="예린이 사진 7" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/8.jpg" alt="예린이 사진 8" class="gallery-photo">
+                </div>
+                <div class="gallery-item">
+                    <img src="photo/9.JPG" alt="예린이 사진 9" class="gallery-photo">
+                </div>
+            </div>
+            
+            <!-- Extended Gallery (hidden by default) -->
+            <div class="gallery-grid extended-gallery" id="extendedGallery" style="display: none;"></div>
+
+            <!-- Load More Button (below photos) -->
+            <div class="gallery-toggle">
+                <button id="nextBatchBtn" class="toggle-btn" type="button">
+                    <span class="toggle-text">다른 사진 보기</span>
+                    <i class="fas fa-chevron-right toggle-icon"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Event Info Section -->
+    <section class="event-info-section">
+        <div class="event-info-container">
+            <div class="event-info-card">
+                <h3 class="event-info-title">🎉 100일 파티 정보</h3>
+                <div class="event-info-content">
+                    <div class="info-item">
+                        <span class="info-icon">📅</span>
+                        <span class="info-text">2026년 07월 25일 토요일 12:00</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">📍</span>
+                        <span class="info-text">여의도 긴자</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">👨‍👩‍👧</span>
+                        <span class="info-text">아빠 이상민 <br/> 엄마 김민경</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Modal (최적화된 이미지용) -->
+    <div id="photoModal" class="photo-modal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" type="button">&times;</button>
+            <img id="modalImage" src="" alt="" class="modal-image">
+        </div>
+    </div>
+
+    <!-- Location Section -->
+    <section class="location-section">
+        <div class="location-container">
+            <h2 class="location-title">찾아오시는 길</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="venue-details">
+                        <h3>여의도 긴자</h3>
+                        <p class="address">서울특별시 영등포구 국제금융로2길 36</p>
+                        <p class="phone">📞 02-785-4200</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="map" class="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
