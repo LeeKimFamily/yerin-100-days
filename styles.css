@@ -869,7 +869,7 @@ body.modal-open .extended-gallery {
     display: flex !important;
     align-items: center !important;
     gap: 1rem !important;
-    padding: 1rem !important;
+    padding: 1.3em !important;
     background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%) !important;
     border-radius: 15px !important;
     border: 1px solid rgba(255, 182, 193, 0.3) !important;
