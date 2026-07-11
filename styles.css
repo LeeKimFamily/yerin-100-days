@@ -106,7 +106,7 @@ body {
     justify-content: center;
     position: relative;
     overflow: visible;
-    padding: 2rem 0 8rem 0;
+    padding: 2rem 0 0 0;
     will-change: auto;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
@@ -385,7 +385,7 @@ body {
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     border-radius: 25px;
-    padding: 3rem;
+    padding: 1rem;
     box-shadow: 0 12px 40px rgba(255, 182, 193, 0.2);
     border: 2px solid rgba(255, 182, 193, 0.3);
     position: relative;
@@ -418,17 +418,17 @@ body {
     /* --- 가로 길이 확장을 위해 추가/수정된 부분 --- */
     width: 100%; 
     max-width: 600px; /* 이 숫자를 늘리거나 줄여서 원하는 좌우 길이를 맞추세요 (예: 700px, 80% 등) */
-    margin: 0 auto 2.5rem auto; /* 가운데 정렬 및 기존 하단 여백(2.5rem) 유지 */
+    margin: 0 auto 1rem auto; /* 가운데 정렬 및 기존 하단 여백(2.5rem) 유지 */
     
     /* --- 기존 속성 유지 --- */
     font-size: 1rem;
     color: #4a5568;
-    line-height: 1.8;
+    line-height: 1;
     text-align: center;
     font-family: 'Hi Melody', cursive;
     font-weight: 400;
     position: relative;
-    padding: 2rem 1.5rem;
+    padding: 1rem 1rem;
     z-index: 2;
     white-space: pre-line !important;
     background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #f8f4ff 100%);
