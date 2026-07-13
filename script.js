@@ -70,8 +70,8 @@ document.querySelectorAll('.greeting-text, .timeline-item').forEach(el => {
 
 // Gallery items with different observer settings
 const galleryObserverOptions = {
-    threshold: 0.9,
-    rootMargin: '0px 0px -400px 0px'
+    threshold: 0.1,
+    rootMargin: '0px 0px 50px 0px'
 };
 
 const galleryObserver = new IntersectionObserver((entries) => {
@@ -79,6 +79,7 @@ const galleryObserver = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            galleryObserver.unobserve(entry.target);
         }
     });
 }, galleryObserverOptions);
@@ -87,8 +88,8 @@ const galleryObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.gallery-item').forEach(el => {
     if (el) {
         el.style.opacity = '0';
-        el.style.transform = 'translateY(50px)';
-        el.style.transition = 'opacity 1s ease, transform 1s ease';
+        el.style.transform = 'translateY(20px)'; // 이동 거리를 50px -> 20px로 줄여 더 빠르게 정착
+        el.style.transition = 'opacity 0.3s ease, transform 0.3s ease'; // 애니메이션 시간을 1초 -> 0.3초로 단축
         galleryObserver.observe(el);
     }
 });
@@ -301,40 +302,41 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentBatch = 0;
     const BATCH_SIZE = 9; // 모든 사진을 한 번에 표시
 
-    function createGalleryItem(photo) {
-        const item = document.createElement('div');
-        item.className = 'gallery-item';
+function createGalleryItem(photo) {
+    const item = document.createElement('div');
+    item.className = 'gallery-item';
 
-        const img = document.createElement('img');
-        img.className = 'gallery-photo';
+    const img = document.createElement('img');
+    img.className = 'gallery-photo';
 
-        // 이미지 최적화 설정
-        img.setAttribute('loading', 'lazy');
-        img.setAttribute('decoding', 'async');
-        img.setAttribute('fetchpriority', 'low');
+    // 이미지 로딩 설정 (lazy는 유지하되 fetchpriority 제거하여 다운로드 속도 향상)
+    img.setAttribute('loading', 'lazy');
+    img.setAttribute('decoding', 'async');
+    // img.setAttribute('fetchpriority', 'low'); <-- 제거 (속도 저하 원인)
 
-        // 극도로 작은 썸네일 (브라우저 멈춤 방지)
-        img.style.maxWidth = '100px';
-        img.style.maxHeight = '100px';
-        img.style.objectFit = 'cover';
-        img.style.borderRadius = '6px';
+    // 크기 및 스타일 (기존 유지)
+    img.style.maxWidth = '100px';
+    img.style.maxHeight = '100px';
+    img.style.objectFit = 'cover';
+    img.style.borderRadius = '6px';
 
-        // 최소한의 로딩 효과
-        img.style.transition = 'opacity 0.2s ease';
-        img.style.opacity = '0.8';
+    // 로딩 효과 가속화
+    img.style.transition = 'opacity 0.2s ease';
+    img.style.opacity = '1'; // 기본 투명도를 올려 초기 깜빡임 방지
 
-        // 메모리 최적화 강화
-        img.style.contain = 'layout style paint size';
-        img.style.willChange = 'auto';
-        img.style.imageRendering = 'optimizeSpeed';
+    // 메모리 최적화
+    img.style.contain = 'layout style paint size';
+    
+    img.dataset.originalSrc = photo.src;
+    img.src = photo.src;
 
-        // 원본 이미지 경로 (모달에서 사용)
-        img.dataset.originalSrc = photo.src;
-        img.src = photo.src;
-
-        item.appendChild(img);
-        return item;
-    }
+    item.appendChild(img);
+    
+    // 아이템 생성과 동시에 관찰 대상에 추가
+    galleryObserver.observe(item); 
+    
+    return item;
+}
 
     function showNextBatch() {
         const startIndex = currentBatch * BATCH_SIZE;
